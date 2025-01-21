@@ -16,7 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 var GlobalNav = /** @class */ (function (_super) {
     __extends(GlobalNav, _super);
     function GlobalNav() {
-        var _this = _super.call(this) || this;
+        var _this = Reflect.construct(HTMLElement, [], new.target);
         _this.attachShadow({ mode: 'open' });
         return _this;
     }
