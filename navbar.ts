@@ -4,6 +4,17 @@ class GlobalNav extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
+  static get observedAttributes() {
+    return ['links'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    // React to attribute changes
+    if (name === 'links' && oldValue !== newValue) {
+      this.render();
+    }
+  }
+
   connectedCallback() {
     this.render();
   }

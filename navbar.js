@@ -20,6 +20,19 @@ var GlobalNav = /** @class */ (function (_super) {
         _this.attachShadow({ mode: 'open' });
         return _this;
     }
+    Object.defineProperty(GlobalNav, "observedAttributes", {
+        get: function () {
+            return ['links'];
+        },
+        enumerable: false,
+        configurable: true
+    });
+    GlobalNav.prototype.attributeChangedCallback = function (name, oldValue, newValue) {
+        // React to attribute changes
+        if (name === 'links' && oldValue !== newValue) {
+            this.render();
+        }
+    };
     GlobalNav.prototype.connectedCallback = function () {
         this.render();
     };
